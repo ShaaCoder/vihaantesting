@@ -17,13 +17,20 @@ export default function AdminLogin() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    
+    // Simple form validation
+    if (!form.username || !form.password) {
+      setError("Both fields are required.");
+      return;
+    }
+
     const result = await signIn("credentials", {
       redirect: false,
       ...form,
     });
 
-    if (!result.ok) {
-      setError("Invalid credentials");
+    if (!result?.ok) {
+      setError(result?.error || "Invalid credentials");
     } else {
       router.push("/admin");
     }
