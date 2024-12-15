@@ -11,7 +11,7 @@ export default function AdminLogin() {
   // Redirect to dashboard if already authenticated
   useEffect(() => {
     if (status === "authenticated") {
-      router.push("/admin/");
+      router.push("/admin");
     }
   }, [status, router]);
 
