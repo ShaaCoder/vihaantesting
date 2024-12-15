@@ -8,10 +8,7 @@ export default function AdminIndex() {
   const router = useRouter();
 
   // Redirect to login page if not authenticated
-  if (status === "unauthenticated") {
-    router.push("/");
-    return null;
-  }
+
 
   // Loading state if session is still being fetched
   if (status === "loading") {
